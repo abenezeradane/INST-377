@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta
+            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+            name="viewport"
+        />
+        <title>Lab 01: Lorem Ipsum</title>
+
+        <style>
+            :root {
+                -webkit-font-smoothing: antialiased !important;
+                -webkit-font-smoothing: antialiased;
+                text-rendering: geometricPrecision;
+
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            @font-face {
+                font-family: "Figtree";
+                src: url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+            }
+
+            .text-flicker {
+                animation-duration: 0.01s;
+                animation-name: text-flicker;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                transform: rotateZ(360deg);
+            }
+
+            @keyframes text-flicker {
+                from {
+                    text-shadow: 1px 0px 0px #ea36af, -2px 0px 0px #75fa69;
+                }
+
+                to {
+                    text-shadow: 2px 1px 2px #ea36af, -1px -1px 2px #75fa69;
+                }
+            }
+
+            body {
+                height: 100vh;
+                width: 100vw;
+
+                color: #fff;
+                background-color: #000;
+
+                font-size: 1em;
+                font-family: "Figtree", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+                letter-spacing: -0.05em;
+
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            #container {
+                height: 100%;
+                width: 100%;
+            }
+
+            #content {
+                position: absolute;
+                top: 0px;
+                bottom: 0px;
+                left: 0px;
+                right: -15px;
+            }
+
+            header {
+                height: 5vh;
+                padding: 5%;
+                font-size: clamp(5vw, 5vw, 50px);
+
+                display: flex;
+                align-items: center;
+            }
+
+            p {
+                margin-bottom: 10rem;
+                font-size: clamp(3vw, 3vw, 30px);
+                padding: 0 5%;
+            }
+
+            span {
+                opacity: 0.1;
+            }
+
+            hr {
+                display: block;
+                height: 1px;
+                border: 0;
+                border-top: 1px solid #ccc;
+                margin-bottom: 5vh;
+                padding: 0;
+            }
+
+            #final-paragraph {
+                margin-bottom: 50vh;
+            }
+
+            #for-the-assignment {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+
+            #post-note {
+                width: 50%;
+                margin-bottom: 10rem;
+                font-size: 2em;
+                padding: 0 5%;
+            }
+
+            table {
+                padding: 0 15% 0 0;
+            }
+
+            img {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            ol {
+                padding: 0 5%;
+            }
+
+            ul {
+                padding: 0 5%;
+            }
+        </style>
+    </head>
+    <body>
+        <script type="module">
+            const paragraphs = [...document.querySelectorAll('p')];
+            
+            paragraphs.forEach(paragraph => {
+                var string = '';
+                var array = paragraph.textContent.split(' ');
+                for (var i = 0; i < array.length; i++) {
+                    string += `<span>${array[i]}</span>`;
+                }
+                
+                paragraph.innerHTML = string;
+            })
+        
+            var spans = [...document.querySelectorAll('span')];
+            function reveal() {
+                for (var i = 0; i < spans.length; i++) {
+                    if (spans[i].parentElement.getBoundingClientRect().top < window.innerHeight / 2) {
+                        var {left, top} = spans[i].getBoundingClientRect();
+                        top = top - (window.innerHeight * 0.5);
+                        
+                        var opacity = 1 - ((top * 0.01) + (left * 0.001)) < 0.1 ? 0.1 : 1 - ((top * 0.01) + (left * 0.001)).toFixed(3);
+                        opacity = opacity > 1 ? 1 : opacity.toFixed(3);
+                        spans[i].style.opacity = opacity;
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                reveal();
+            })
+
+            reveal();
+        </script>
+
+        <div id="container">
+            <div id="content">
+                <div id="for-fun" class="text-flicker">
+                    <header>
+                        <h1>Lorem Ipsum</h1>
+                    </header>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Duis ullamcorper sit amet sapien quis fringilla. Sed
+                        dolor ipsum, fringilla non ultricies ut, venenatis sed
+                        ipsum. Maecenas feugiat tellus lacus, vitae aliquam
+                        magna sagittis eu. Curabitur turpis dui, efficitur in
+                        elit vitae, efficitur mattis massa. Aenean in justo
+                        mauris. Nulla mollis sodales neque, id aliquet nibh
+                        suscipit eget. Etiam ac molestie purus. Donec id diam
+                        imperdiet, dignissim enim at, ornare est. Ut mattis,
+                        lacus quis sodales euismod, dolor nunc commodo diam,
+                        eget pellentesque dolor justo eget nisi. Curabitur
+                        aliquet, dui in sollicitudin pulvinar, felis est dictum
+                        est, vitae vestibulum enim magna eget felis. Class
+                        aptent taciti sociosqu ad litora torquent per conubia
+                        nostra, per inceptos himenaeos. Ut non iaculis enim, nec
+                        varius tortor. Nam fermentum, quam nec malesuada
+                        pellentesque, turpis nulla vestibulum orci, eget mollis
+                        sem nunc eu risus. Sed vitae ligula ullamcorper enim
+                        facilisis sagittis. Pellentesque suscipit sem arcu, in
+                        vestibulum sem viverra ac. Praesent aliquam interdum
+                        elit et condimentum.
+                    </p>
+                    <p>
+                        Pellentesque accumsan leo tincidunt, mattis elit at,
+                        aliquet risus. Vestibulum quis molestie tellus. Nullam
+                        egestas tellus sed massa faucibus, et congue arcu
+                        consequat. Cras ornare libero at orci fringilla
+                        interdum. Class aptent taciti sociosqu ad litora
+                        torquent per conubia nostra, per inceptos himenaeos.
+                        Nulla lobortis id tellus vitae lacinia. Morbi at
+                        accumsan sapien. Etiam quis aliquet est. Sed vel posuere
+                        leo, ornare sodales libero. Phasellus luctus facilisis
+                        ipsum vitae ultricies. Ut placerat eros id lectus
+                        rutrum, ac volutpat libero auctor. Cras vulputate, erat
+                        vitae interdum auctor, enim erat pharetra mauris, sed
+                        pretium est metus quis massa. Aliquam et tellus in dui
+                        fermentum ultricies id sit amet mauris. In tempor massa
+                        non euismod convallis.
+                    </p>
+                    <p>
+                        Ut sit amet turpis dui. Vivamus facilisis, lacus vel
+                        laoreet vehicula, mauris felis sodales magna, ut luctus
+                        arcu dui sit amet metus. Morbi commodo erat at elementum
+                        venenatis. Mauris ac lacinia arcu. Phasellus ultrices
+                        tellus nisl, ut eleifend ante tempor ac. Fusce non
+                        turpis justo. Aliquam viverra lorem lectus, non placerat
+                        tellus tempor egestas. Fusce ut fringilla arcu, ac
+                        lobortis neque. Vivamus fermentum laoreet neque vel
+                        placerat.
+                    </p>
+                    <p>
+                        Aliquam erat volutpat. Interdum et malesuada fames ac
+                        ante ipsum primis in faucibus. Mauris vulputate nisi eu
+                        tempor pellentesque. Nam gravida nisi eget sodales
+                        venenatis. Donec ut metus luctus, pretium ligula in,
+                        luctus eros. Ut facilisis mauris lacus, nec luctus orci
+                        lacinia et. Nunc ullamcorper ante nisi, sed lobortis
+                        turpis volutpat a. Pellentesque cursus vulputate
+                        egestas. Quisque id mi ipsum. Fusce sodales libero vitae
+                        quam scelerisque semper. Integer in placerat nunc. Ut
+                        aliquam mollis mauris, sit amet condimentum mauris
+                        tempus non. Sed sapien ipsum, aliquet ut neque at,
+                        pulvinar malesuada magna.
+                    </p>
+                    <p>
+                        Etiam pharetra, nulla eu semper condimentum, dolor est
+                        condimentum urna, sit amet feugiat felis nunc sed nunc.
+                        Quisque non ultricies ex. Morbi quis condimentum turpis,
+                        sit amet convallis lectus. Suspendisse sed purus ante.
+                        Morbi vel ante enim. Integer dui nisi, rutrum
+                        ullamcorper tempor et, iaculis et enim. Pellentesque in
+                        justo ut enim laoreet iaculis. Cras erat nisi, convallis
+                        in mauris eu, vestibulum lobortis mauris. Sed at iaculis
+                        nunc. Nunc rhoncus est a libero ultricies, vitae
+                        pulvinar nisl pulvinar. Curabitur pellentesque ligula et
+                        erat efficitur fringilla. Aenean eleifend eget ipsum in
+                        placerat. Nunc consectetur odio luctus velit efficitur
+                        placerat.
+                    </p>
+                    <p>
+                        Suspendisse ut sodales tellus. Nam fermentum nibh lacus,
+                        quis vulputate magna hendrerit sed. Curabitur ultricies
+                        ullamcorper maximus. Pellentesque eget sagittis nisl.
+                        Quisque vel ipsum ac arcu volutpat egestas. Vivamus
+                        dapibus turpis id massa sollicitudin condimentum eget ut
+                        quam. Donec gravida aliquam tincidunt. Sed sagittis
+                        cursus sollicitudin. Suspendisse eu blandit urna.
+                        Vestibulum dictum dui ut dolor gravida lobortis. Nullam
+                        ac lorem vitae felis dignissim sollicitudin in at risus.
+                        Duis dignissim at erat eget ultrices. Praesent iaculis
+                        arcu et arcu luctus feugiat. Nunc ac vestibulum justo.
+                        Vestibulum tristique neque vel massa fringilla
+                        consectetur et nec tortor.
+                    </p>
+                    <p>
+                        Morbi sit amet maximus dolor. Pellentesque lobortis
+                        vehicula pretium. Duis viverra at leo in tincidunt.
+                        Integer lobortis condimentum erat sed aliquet. Sed et
+                        velit faucibus metus porttitor auctor non sit amet
+                        dolor. Suspendisse nec mi non sapien pharetra pretium a
+                        non enim. Aliquam et ultrices turpis.
+                    </p>
+                    <p>
+                        Aliquam erat volutpat. Nulla dictum tincidunt ex at
+                        pretium. Sed sollicitudin massa eget mi faucibus
+                        dapibus. Duis id orci urna. Pellentesque vitae volutpat
+                        mi. Cras vel fringilla turpis, non scelerisque lorem.
+                        Integer in mauris ornare, aliquet massa sit amet,
+                        tincidunt felis. Maecenas vel enim vehicula,
+                        sollicitudin mauris vitae, molestie dui. Duis vel eros
+                        tristique, convallis risus vitae, scelerisque ipsum.
+                        Vestibulum lobortis eget arcu ut fermentum. Sed cursus
+                        dolor vitae nisl posuere tincidunt. Fusce non
+                        sollicitudin est. Vestibulum eu augue ex. Nunc volutpat
+                        ante ut justo pharetra viverra. Morbi ac lacus nec arcu
+                        tincidunt congue a congue lacus. Morbi pellentesque
+                        lorem non justo malesuada vulputate.
+                    </p>
+                    <p>
+                        Donec nec ullamcorper magna, ut fringilla erat.
+                        Suspendisse ac enim consequat, luctus lorem quis,
+                        facilisis justo. Curabitur lobortis elit vel lectus
+                        laoreet convallis. Maecenas vestibulum purus eu
+                        efficitur feugiat. Vestibulum non porta quam. Nulla
+                        facilisi. Proin sit amet velit efficitur, fermentum erat
+                        id, viverra est. Proin faucibus velit eget sem porta
+                        cursus. Suspendisse quam lectus, placerat vitae lacus
+                        eget, posuere molestie nisi. Pellentesque habitant morbi
+                        tristique senectus et netus et malesuada fames ac turpis
+                        egestas. Mauris tempor aliquam nunc, sit amet pharetra
+                        diam pulvinar eu. Cras ac lorem interdum, condimentum
+                        libero sit amet, mollis libero. Ut fermentum dui sit
+                        amet dignissim aliquam.
+                    </p>
+                    <p>
+                        Aenean maximus lacus eu ligula bibendum, nec semper
+                        magna lacinia. Pellentesque habitant morbi tristique
+                        senectus et netus et malesuada fames ac turpis egestas.
+                        Orci varius natoque penatibus et magnis dis parturient
+                        montes, nascetur ridiculus mus. Suspendisse pretium
+                        nulla ornare mi hendrerit, suscipit tincidunt dolor
+                        egestas. Proin sollicitudin id lorem eu posuere. Ut
+                        luctus metus dui, at tincidunt dui tristique et. Nullam
+                        erat ligula, ornare finibus imperdiet eu, vehicula vel
+                        nunc. Nulla augue lorem, fringilla sed ipsum ut, feugiat
+                        interdum ipsum. Ut mi nunc, porta non faucibus id,
+                        fermentum vel velit. Ut id lorem et orci accumsan
+                        faucibus nec id justo. Donec quis ipsum sem. Vivamus
+                        efficitur efficitur neque sed ultrices. Donec et semper
+                        dui. Ut bibendum eros quis tincidunt vestibulum.
+                        Phasellus maximus ac est ut lobortis. Praesent in lorem
+                        vulputate nisi eleifend malesuada.
+                    </p>
+                    <p>
+                        Sed id dignissim purus, eget iaculis nisl. Curabitur
+                        tempus ut nisi in lacinia. Nulla a arcu elementum,
+                        aliquam tortor eget, sollicitudin ligula. Etiam mauris
+                        ex, efficitur sed facilisis eu, finibus a nulla. Etiam
+                        ac interdum ipsum. Aliquam consectetur id metus nec
+                        ornare. Nulla in finibus sem. Pellentesque bibendum
+                        auctor velit, nec vestibulum mi interdum at. Praesent ac
+                        purus lectus. Nulla facilisi. Donec vel ex sed lorem
+                        ultricies condimentum eget id ante. Nam et ipsum
+                        aliquet, aliquam velit eu, scelerisque augue. Donec
+                        mollis eleifend felis, vitae luctus nunc aliquam et.
+                        Donec congue ex ac elit luctus auctor. Phasellus vitae
+                        lectus vitae sapien pretium tristique.
+                    </p>
+                    <p id="final-paragraph">
+                        Curabitur non finibus tortor. Quisque a imperdiet
+                        tellus, a facilisis purus. Aenean fringilla posuere
+                        risus et fringilla. Phasellus aliquet mauris sit amet
+                        tempor dapibus. Nullam at facilisis magna. Aenean
+                        fermentum pretium dui a volutpat. In efficitur nunc sit
+                        amet quam sodales, sed eleifend lacus gravida. Donec
+                        bibendum lacinia facilisis. Aliquam enim lectus,
+                        imperdiet ut vestibulum sed, sollicitudin vel leo.
+                        Maecenas et nulla vulputate, pellentesque tellus quis,
+                        iaculis metus. Ut rutrum blandit tortor ut placerat. In
+                        hac habitasse platea dictumst. Aenean auctor nibh
+                        congue, convallis purus nec, faucibus tortor.
+                    </p>
+                </div>
+                <hr />
+                <div id="for-the-assignment">
+                    <blockquote id="post-note">
+                        <h2>Hello Professor Dash and/or TAs!</h2>
+                        My name is Abenezer and I am a senior Information Science
+                        student. I'll be graduating this spring after which I'll 
+                        start working as a software engineer. To be honest, I'm a
+                        backend engineer so I try my best to stay away from the
+                        frontend, but I figured thisclass was a good opportunity to
+                        learn and become more wellrounded. So enjoy this website, I
+                        really wanted to show off the text scroll effect and the
+                        text flicker effect (which I made a while back and use on 
+                        my own personal portfolio site). To meet the requirements 
+                        of the assignment, here are the rest of the tags you wanted 
+                        us to use. Sorry if this is too informal for an academic 
+                        setting, but you said to be creative on the assignment and 
+                        I was already working on the text scroll. Anyway, I hope 
+                        you enjoy this site just as much as I'm enjoying this 
+                        class so far. Cheers!
+                    </blockquote>
+                    <ul>
+                        <li>👋</li>
+                        <li>🔥</li>
+                        <li>💯</li>
+                        <li>💮</li>
+                        <li>🧯</li>
+                    </ul>
+                    <ol>
+                        <li>1️⃣</li>
+                        <li>2️⃣</li>
+                        <li>3️⃣</li>
+                        <li>4️⃣</li>
+                        <li>5️⃣</li>
+                    </ol>
+                    <table>
+                        <tr>
+                            <th>
+                                <h3 style="background-color:crimson">The Memes</h3>
+                            </th>
+                            <th>
+                                <h3 style="background-color:royalblue">Are Links</h3>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/en/2/2b/Bad_Luck_Brian.jpg"
+                                        alt="Bad Luck Brian"
+                                    />
+                                </a>
+                            </th>
+                            <th>
+                                <a href="https://www.youtube.com/watch?v=CsGYh8AacgY">
+                                    <img
+                                        src="https://helios-i.mashable.com/imagery/articles/06NwyMPotETRux7TrR6H74Q/hero-image.fill.size_1200x1200.v1614270598.jpg"
+                                        alt="Overly Attached Girlfriend"
+                                    />
+                                </a>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <a href="https://www.youtube.com/watch?v=J---aiyznGQ">
+                                    <img
+                                        src="https://media1.tenor.com/m/2roX3uxz_68AAAAC/cat-space.gif"
+                                        alt="Nyan Cat"
+                                    />
+                                </a>
+                            </th>
+                            <th>
+                                <a href="https://www.youtube.com/watch?v=eRBOgtp0Hac">
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/en/7/73/Trollface.png"
+                                        alt="Trollface"
+                                    />
+                                </a>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
