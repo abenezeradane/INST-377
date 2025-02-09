@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lab 02</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <style>
+            body {
+                background-color: var(--maryland-red);
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+            }
+        </style>
+    </head>
+    <body>
+        <section id="form">
+            <h1>University of Maryland</h1>
+            <div>
+                <h2>Who Are You?</h2>
+                <form method="POST" action="thank-you.html">
+                    <label for="fName">First Name:</label>
+                    <input type="text" id="fName" name="fName" required />
+
+                    <label for="lName">Last Name:</label>
+                    <input type="text" id="lName" name="lName" required />
+
+                    <label for="grade">Grade</label>
+                    <select id="grade" name="grade">
+                        <option value="Freshman">Freshman</option>
+                        <option value="Sophomore">Sophomore</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Faculty-Staff">Faculty/Staff</option>
+                    </select>
+
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
+        </section>
+
+        <!-- <section id="afterward">
+            <h1>University of Maryland</h1>
+            <div>
+                <img src="img/University Logo.svg" alt="University Logo" />
+                <h2>Thank You for Your Response!</h2>
+            </div>
+        </section> -->
+
+        <!-- <script defer>
+            "use strict";
+
+            const form = document.querySelector("#form");
+            const afterward = document.querySelector("#afterward");
+
+            const submit = document.querySelector(
+                "#form>div>form>input:last-child"
+            );
+            console.log(submit);
+            submit.addEventListener("click", () => {
+                form.style.visibility = "hidden";
+                afterward.style.visibility = "visible";
+            });
+        </script> -->
+    </body>
+</html>
