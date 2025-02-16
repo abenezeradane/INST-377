@@ -1,0 +1,136 @@
+:root {
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+}
+
+@font-face {
+    font-family: "Figtree Regular";
+    src: url(../font/Figtree-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Figtree Bold";
+    src: url(../font/Figtree-Bold.ttf);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    color: black;
+    /* font-size: 0.75em; */
+    font-family: "Figtree", sans-serif;
+    background-color: #FFE4C4;
+}
+
+header, footer {
+    color: white;
+    background-color: gray;
+
+    padding: 1%;
+    margin: 1% 2%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    width: 95%;
+    padding-left: 5%;
+
+    background-color: blue;
+
+    gap: 2%;
+    display: inline-flex;
+    align-items: flex-start;
+
+    margin: 1% 0.5%;
+}
+
+nav a {
+    padding: 0% 1%;
+    line-height: 3em;
+
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: brown;
+}
+
+#content {
+    width: 100%;
+    height: 50%;
+    
+    gap: 2.5%;
+    display: flex;
+    flex-direction: row;
+}
+
+#main-content {
+    width: 62.5%;
+
+    padding: 0% 1%;
+    margin: 1% 0.5%;
+
+    border-radius: 1em;
+    border: 3px solid black;
+    background-color: #7FFFD4;
+}
+
+#main-content form {
+    font-size: 1.075em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+select {
+    width: 25%;
+    padding: 0.75em 1em;
+
+    margin: 0.75em 0;
+
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    width: 50%;
+}
+
+input[type="submit"] {
+    width: 25%;
+    padding: 1% 0%;
+
+    border: 0;
+    border-radius: 0.25em;
+
+    cursor: pointer;
+}
+
+#sidebar {
+    width: 35%;
+
+    padding: 0% 1%;
+    margin: 1% 0.5%;
+
+    border-radius: 1em;
+    border: 3px solid black;
+
+    background-color: #02FFFFFF;
+}
+
+#sidebar:hover {
+    background-color: hotpink;
+}
+
+#sidebar h1 {
+    text-decoration: underline;
+}
