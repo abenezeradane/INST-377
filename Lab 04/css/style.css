@@ -1,0 +1,78 @@
+:root {
+    -webkit-font-smoothing: antialiased !important;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+}
+
+@font-face {
+    font-family: "Figtree Regular";
+    src: url(../font/Figtree-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Figtree Bold";
+    src: url(../font/Figtree-Bold.ttf);
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+
+    color: #000000;
+    font-family: "Figtree", sans-serif;
+    background-color: #ADD8E6;
+    transition: background-color 0.5s ease;
+
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    justify-content: center;
+}
+
+#container {
+    width: 75%;
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    grid-column-gap: 5%;
+    grid-row-gap: 10%;
+}
+
+#container section {
+    width: 90%;
+
+    padding: 2.5em 1em;
+
+    color: #FFFFFF;
+    background-color: #663399;
+
+    border-radius: 1em;
+    border: 5px solid #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 100%;
+
+    gap: 2%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button,
+input[type="submit"] {
+    width: auto;
+    padding: 1% 5%;
+
+    border: 0;
+    border-radius: 0.25em;
+
+    cursor: pointer;
+}
