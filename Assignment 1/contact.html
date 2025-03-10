@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Assignment 1: Contact Me</title>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <script defer src="js/form.js"></script>
+    </head>
+    <body>
+        <header><h1>Contact Me</h1></header>
+        <nav>
+            <a href="index.html" target="_self">Home</a>
+            <a href="games.html" target="_self">Games</a>
+            <a href="contact.html" target="_self">Contact Me</a>
+        </nav>
+
+        <div id="container">
+            <main id="contact">
+                <h2>Get in Touch</h2>
+                <form id="contact-form">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required />
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required />
+
+                    <label for="message">Your Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </main>
+        </div>
+
+        <footer>
+            <p>
+                <strong>Abenezer Adane</strong> on
+                <strong>Mar. 06, 2025</strong>
+            </p>
+        </footer>
+    </body>
+</html>
