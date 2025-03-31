@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Color Changer</title>
+
+        <style>
+            body {
+                width: 100vw;
+                height: 100vh;
+
+                margin: 0;
+                padding: 0;
+
+                color: #212123;
+                font-family: "Calibri", sans-serif;
+                background-color: #f2f0e5;
+
+                display: flex;
+                flex-direction: column;
+
+                align-items: center;
+                justify-content: center;
+            }
+
+            main,
+            header,
+            footer {
+                width: 100%;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            header {
+                height: 25%;
+                position: absolute;
+                top: 0;
+            }
+
+            footer {
+                height: 7.5%;
+                position: absolute;
+                bottom: 0;
+            }
+
+            button {
+                padding: 1em 3em;
+                border-radius: 10px;
+                border: 0;
+                background-color: rgb(255, 56, 86);
+                letter-spacing: 1.5px;
+                font-size: 15px;
+                transition: all 0.3s ease;
+                box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+                color: hsl(0, 0%, 100%);
+                cursor: pointer;
+            }
+
+            button:hover {
+                box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+            }
+
+            button:active {
+                background-color: rgb(255, 56, 86);
+                box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+                transform: translateY(5px);
+                transition: 200ms;
+            }
+        </style>
+    </head>
+    <body>
+        <header><h1>Color Changing Header</h1></header>
+        <main>
+            <button onclick="changeColor()">Change Color</button>
+        </main>
+        <footer>
+            <p>
+                <strong>Abenezer Adane</strong> on
+                <strong>Mar. 16, 2025</strong>
+            </p>
+        </footer>
+
+        <script defer>
+            function changeColor() {
+                const colors = ['blue', 'red', 'green', 'yellow', 'orange', 'purple', 'pink'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                document.querySelector("header").style.color = randomColor;
+            }
+        </script>
+    </body>
+</html>
