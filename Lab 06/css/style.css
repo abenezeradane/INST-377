@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    width: 100vw;
+
+    color: #000;
+    font-size: 1em;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #e21833;
+
+    margin: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+header,
+footer {
+    width: 100%;
+    height: 7.5%;
+    position: absolute;
+
+    color: white;
+    background-color: #1d1e26;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    font-size: 0.85rem;
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+
+main {
+    width: 50vw;
+    aspect-ratio: 16 / 9;
+}
+
+main #map {
+    height: 100%;
+}
+
+main section {
+    margin-top: 2.5%;
+    background: #ffd200;
+    padding: 1em;
+    border-radius: 0.75rem;
+    line-height: 1.6;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main section p::after {
+    content: "|";
+    margin: 0 0.5em;
+}
+
+main section p:last-child::after {
+    content: "";
+}
