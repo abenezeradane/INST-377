@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lab 07: </title>
+
+        <link rel="stylesheet" href="css/style.css" />
+        <script src="js/script.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+        <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+    </head>
+    <body>
+        <header><h1>Let's Look Up Some Books!</h1></header>
+        <main>
+            <h2>Enter a Book Name</h2>
+            <div id="form">
+                <form id="lookup" action="javascript:void(0);">
+                    <input type="text" id="title" name="title" required />
+                    <input type="submit" value="Submit" />
+                </form>
+                <div id="loading-container"></div>
+            </div>
+            <div id="table">
+                <table id="results" class="display">
+                </table>
+            </div>
+        </main>
+        <footer>
+            <p>
+                <strong>Abenezer Adane</strong> on
+                <strong><span></span></strong>
+            </p>
+        </footer>
+
+        <script defer>
+            document.addEventListener("DOMContentLoaded", () => {
+                var today = new Date();
+                const options = { month: 'short', day: '2-digit', year: 'numeric' };
+                document.querySelector('footer span').innerText = today.toLocaleDateString('en-US', options).replace(/(\w{3})/, '$1.');
+            });
+        </script>
+    </body>
+</html>
