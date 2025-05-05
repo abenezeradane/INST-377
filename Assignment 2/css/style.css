@@ -1,0 +1,320 @@
+body {
+    height: 100vh;
+    width: 100vw;
+
+    color: #241F20;
+    font-size: 1em;
+    font-family: "Courier New", Courier, monospace;
+    background-color: #FFFFFF;
+
+    margin: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+header,
+footer {
+    width: 100%;
+    height: 7.5%;
+    position: absolute;
+
+    color: #FFFFFF;
+    background-color: #241F20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    font-size: 0.85rem;
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1rem;
+    background-color: #222;
+    padding: 1rem 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+main {
+    width: auto;
+    min-width: 35%;
+    max-width: 75%;
+    aspect-ratio: 16 / 9;
+
+    margin-top: 2.5%;
+    color: #FFFFFF;
+    background: #241F20;
+    padding: 1em;
+    border-radius: 0.75rem;
+    line-height: 1.6;
+    font-weight: bold;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main h2 {
+    margin-top: 3rem;
+}
+
+#quote-section {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-top: 2em;
+
+    text-align: center;
+    font-style: italic;
+}
+
+#quote-text {
+    font-size: 1rem;
+}
+
+#quote-author {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+#index-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#index-button-container button {
+    --width: 150px;
+    --timing: 2s;
+    border: 0;
+    width: var(--width);
+    padding-block: 1em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    background: rgb(64, 192, 87);
+    transition: all 0.2s;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#index-button-container button:hover {
+    background-image: linear-gradient(to right,
+            rgb(250, 82, 82),
+            rgb(250, 82, 82) 16.65%,
+            rgb(190, 75, 219) 16.65%,
+            rgb(190, 75, 219) 33.3%,
+            rgb(76, 110, 245) 33.3%,
+            rgb(76, 110, 245) 49.95%,
+            rgb(64, 192, 87) 49.95%,
+            rgb(64, 192, 87) 66.6%,
+            rgb(250, 176, 5) 66.6%,
+            rgb(250, 176, 5) 83.25%,
+            rgb(253, 126, 20) 83.25%,
+            rgb(253, 126, 20) 100%,
+            rgb(250, 82, 82) 100%);
+    animation: var(--timing) linear hover infinite;
+    transform: scale(1.1) translateY(-1px);
+}
+
+@keyframes hover {
+    to {
+        background-position: var(--width);
+    }
+}
+
+#lookup-stocks {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.5em;
+}
+
+#lookup-stocks button {
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", "Liberation Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.15385;
+    margin: 0;
+    outline: none;
+    padding: 0.5em 1em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+#lookup-stocks button:hover,
+#lookup-stocks button:focus {
+    background-color: #07c;
+}
+
+#lookup-stocks button:focus {
+    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+#lookup-stocks button:active {
+    background-color: #0064bd;
+    box-shadow: none;
+}
+
+#stock-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin-top: 1rem;
+}
+
+#carousel {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    overflow: hidden;
+    margin: 2rem auto;
+    position: relative;
+}
+
+#carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#breed-button-wrapper {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#breed-buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1rem;
+
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#breed-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+
+#breed-buttons button {
+    padding: 0.5rem 1rem;
+    background-color: #ff90e8;
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    scroll-snap-align: start;
+}
+
+#breed-buttons button:hover {
+    background-color: #f062c0;
+}
+
+#breed-info {
+    background-color: #fff;
+    color: #000;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+#audio-instructions {
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+#audio-instructions div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#audio-instructions button {
+    --bg: #000;
+    --hover-bg: #ff90e8;
+    --hover-text: #000;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid var(--bg);
+    border-radius: 4px;
+    padding: 0.5em 2em;
+    background: var(--bg);
+    transition: 0.2s;
+}
+
+#audio-instructions button:hover {
+    color: var(--hover-text);
+    transform: translate(-0.25rem, -0.25rem);
+    background: var(--hover-bg);
+    box-shadow: 0.25rem 0.25rem var(--bg);
+}
+
+#audio-instructions button:active {
+    transform: translate(0);
+    box-shadow: none;
+}

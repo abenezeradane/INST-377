@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST 377: Assignment 2</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="js/voice.js" defer></script>
+    <script src="js/stocks.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="stocks.html">Stocks</a>
+            <a href="dogs.html">Dogs</a>
+        </nav>
+    </header>
+
+    <main>
+        <div id="stock-columns">
+            <section id="lookup-stocks">
+                <div>
+                    <label for="ticker-input">Enter Stock Ticker:</label>
+                    <input type="text" id="ticker-input" placeholder="e.g., AAPL" />
+                </div>
+
+                <div>
+                    <label for="days-select">Select Range:</label>
+                    <select id="days-select">
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button id="lookup-button" class="custom-button">Lookup</button>
+                </div>
+
+                <canvas id="stock-chart" width="600" height="300"></canvas>
+            </section>
+
+            <section id="reddit-stocks">
+                <h2>Top 5 Reddit Stocks</h2>
+                <table id="stocks-table" class="display">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Comment Count</th>
+                            <th>Sentiment</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <div id="audio-instructions">
+        <h3>Voice Commands</h3>
+        <ul>
+            <li>Say "Hello" - Alerts "Hello World"</li>
+            <li>Say "Change the color to &lt;color&gt;" - Changes background color</li>
+            <li>Say "Navigate to &lt;page&gt;" - Goes to specified page</li>
+            <br>
+            <li><strong>"Lookup &lt;stock&gt;"</strong> – Loads stock data for the given ticker (Stocks page only)</li>
+        </ul>
+
+        <div>
+            <button onclick="voiceControl.start()">Turn On Audio</button>
+            <button onclick="voiceControl.stop()">Turn Off Audio</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            <strong>Abenezer Adane</strong> on
+            <strong><span></span></strong>
+        </p>
+    </footer>
+
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            var today = new Date();
+            const options = { month: 'short', day: '2-digit', year: 'numeric' };
+            document.querySelector('footer span').innerText = today.toLocaleDateString('en-US', options).replace(/(\w{3})/, '$1.');
+        });
+    </script>
+</body>
+
+</html>

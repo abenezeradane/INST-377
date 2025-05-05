@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INST 377: Assignment 2</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script src="js/voice.js" defer></script>
+    <script src="js/quotes.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="stocks.html">Stocks</a>
+            <a href="dogs.html">Dogs</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="quote-section">
+            <blockquote id="quote-text">Loading quote...</blockquote>
+            <cite id="quote-author"></cite>
+        </section>
+
+        <h2>Check These Pages Out:</h2>
+
+        <section id="index-button-container">
+            <button onclick="window.location.href='stocks.html'">Stocks</button>
+            <button onclick="window.location.href='dogs.html'">Dogs</button>
+        </section>
+    </main>
+
+    <div id="audio-instructions">
+        <h3>Voice Commands</h3>
+        <ul>
+            <li>Say "Hello" - Alerts "Hello World"</li>
+            <li>Say "Change the color to &lt;color&gt;" - Changes background color</li>
+            <li>Say "Navigate to &lt;page&gt;" - Goes to specified page</li>
+        </ul>
+
+        <div>
+            <button onclick="voiceControl.start()">Turn On Audio</button>
+            <button onclick="voiceControl.stop()">Turn Off Audio</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            <strong>Abenezer Adane</strong> on
+            <strong><span></span></strong>
+        </p>
+    </footer>
+
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            var today = new Date();
+            const options = { month: 'short', day: '2-digit', year: 'numeric' };
+            document.querySelector('footer span').innerText = today.toLocaleDateString('en-US', options).replace(/(\w{3})/, '$1.');
+        });
+    </script>
+</body>
+
+</html>
